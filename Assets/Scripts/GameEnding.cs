@@ -12,17 +12,21 @@ public class GameEnding : MonoBehaviour
     public CanvasGroup caughtBackgroundImageCanvasGroup;
     public AudioSource caughtAudio;
     public float displayImageDuration = 1f;
+    PlayerMovement playerMovement;
 
     bool m_IsPlayerAtExit;
     bool m_IsPlayerCaught;
     bool m_HasAudioPlayed;
     float m_Timer;
-    
 
+    private void Start()
+    {
+        playerMovement = player.GetComponent<PlayerMovement>();
+    }
     void OnTriggerEnter(Collider other)
     {
         //en cuanto el pj entre al trigger y sea igual al player,nuestro booleano pasara a ser true
-        if (other.gameObject == player)
+        if (other.gameObject == player && playerMovement.contador ==4)
         {
             m_IsPlayerAtExit = true;
         }

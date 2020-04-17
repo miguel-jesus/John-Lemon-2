@@ -2,17 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 20f;
     public TextMeshProUGUI totalMonedas;
     public int contador = 0;
+    public bool hasKey = false;
+    public RawImage keyImage;
     Vector3 m_Movement;
     Animator m_Animator;
     Quaternion m_Rotation = Quaternion.identity;
     Rigidbody m_Rigidbody;
     AudioSource m_AudioSource;
+    
     
     
     // Start is called before the first frame update
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_AudioSource = GetComponent<AudioSource>();
+        keyImage.enabled = false;
     }
 
     //usamos el fixedUpdate para que con el bucle de física evitar conflictos entre la física y la animación.
@@ -66,6 +71,12 @@ public class PlayerMovement : MonoBehaviour
             contador++;
             totalMonedas.text = "Monedas: " + contador + "/4";
             Debug.Log(contador);
+            Destroy(other.gameObject);
+        }
+        if (other.CompareTag("Key"))
+        {
+            hasKey = true;
+            keyImage.enabled = true;
             Destroy(other.gameObject);
         }
     }

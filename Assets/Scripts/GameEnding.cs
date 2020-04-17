@@ -26,7 +26,7 @@ public class GameEnding : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //en cuanto el pj entre al trigger y sea igual al player,nuestro booleano pasara a ser true
-        if (other.gameObject == player && playerMovement.contador ==4)
+        if (other.gameObject == player && playerMovement.contador == 5)
         {
             m_IsPlayerAtExit = true;
         }

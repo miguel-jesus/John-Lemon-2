@@ -11,19 +11,22 @@ public class PlayerMovement : MonoBehaviour
     public int contador = 0;
     public bool hasKey = false;
     public RawImage keyImage;
+    private float jumpForce = 12;
+    private float gravityModifier = 4;
+    private bool isOnGround = true;
     Vector3 m_Movement;
     Animator m_Animator;
     Quaternion m_Rotation = Quaternion.identity;
     Rigidbody m_Rigidbody;
     AudioSource m_AudioSource;
-    
-    
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+        Physics.gravity *= gravityModifier;
         m_AudioSource = GetComponent<AudioSource>();
         keyImage.enabled = false;
     }
@@ -31,10 +34,11 @@ public class PlayerMovement : MonoBehaviour
     //usamos el fixedUpdate para que con el bucle de física evitar conflictos entre la física y la animación.
     void FixedUpdate()
     {
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        
-        m_Movement.Set(horizontal,0f, vertical);
+
+        m_Movement.Set(horizontal, 0f, vertical);
         //lo normalizamos debido a que si no el pj se moveria mas rapido en diagonal que recto
         m_Movement.Normalize();
 
@@ -58,7 +62,16 @@ public class PlayerMovement : MonoBehaviour
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_Movement, turnSpeed * Time.deltaTime, 0f);
         m_Rotation = Quaternion.LookRotation(desiredForward);
 
+        if (Input.GetKeyDown(KeyCode.Space)&& isOnGround)
+        {
+            m_Rigidbody.AddForce(Vector3.up * jumpForce,ForceMode.Impulse);
+            isOnGround = false;
+
+        }
+
+
     }
+
     void OnAnimatorMove()
     {
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
@@ -69,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Moneda"))
         {
             contador++;
-            totalMonedas.text = "Monedas: " + contador + "/4";
+            totalMonedas.text = "Monedas: " + contador + "/5";
             Debug.Log(contador);
             Destroy(other.gameObject);
         }
@@ -78,6 +91,13 @@ public class PlayerMovement : MonoBehaviour
             hasKey = true;
             keyImage.enabled = true;
             Destroy(other.gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Moneda
   - Key
+  - Ground
   layers:
   - Default
   - TransparentFX

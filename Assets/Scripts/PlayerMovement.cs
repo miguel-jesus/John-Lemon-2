@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float turnSpeed = 20f;
+    public TextMeshProUGUI totalMonedas;
     Vector3 m_Movement;
     Animator m_Animator;
     Quaternion m_Rotation = Quaternion.identity;
     Rigidbody m_Rigidbody;
     AudioSource m_AudioSource;
     int contador = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Moneda"))
         {
             contador++;
+            totalMonedas.text = "Monedas: " + contador + "/4";
             Debug.Log(contador);
             Destroy(other.gameObject);
         }

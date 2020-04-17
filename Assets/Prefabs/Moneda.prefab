@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 2401187871255238919}
   - component: {fileID: 2401187871255238916}
   - component: {fileID: 2401187871255238917}
-  - component: {fileID: 2401187871255238918}
-  - component: {fileID: 2417094285844920186}
+  - component: {fileID: 8986686897109242583}
   m_Layer: 0
   m_Name: Moneda
   m_TagString: Moneda
@@ -79,21 +78,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2401187871255238918
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2401187871255238936}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!65 &2417094285844920186
+--- !u!65 &8986686897109242583
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,5 +89,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.210625, y: 5.8018346, z: 1.0000005}
-  m_Center: {x: -0.021175675, y: -0.14744511, z: -0.00000010394466}
+  m_Size: {x: 1.124263, y: 6.846354, z: 1.0000005}
+  m_Center: {x: -0.010172614, y: -0.0009830475, z: -0.00000010394466}

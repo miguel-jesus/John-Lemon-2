@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Quaternion m_Rotation = Quaternion.identity;
     Rigidbody m_Rigidbody;
     AudioSource m_AudioSource;
+    int contador = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,5 +54,14 @@ public class PlayerMovement : MonoBehaviour
     {
         m_Rigidbody.MovePosition(m_Rigidbody.position + m_Movement * m_Animator.deltaPosition.magnitude);
         m_Rigidbody.MoveRotation(m_Rotation);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Moneda"))
+        {
+            contador++;
+            Debug.Log(contador);
+            Destroy(other.gameObject);
+        }
     }
 }

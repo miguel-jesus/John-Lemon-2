@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public int contador = 0;
     public bool hasKey = false;
     public RawImage keyImage;
-    private float jumpForce = 12;
-    private float gravityModifier = 4;
+    private float jumpForce = 5;
+    private float gravityModifier = 10;
     private bool isOnGround = true;
     Vector3 m_Movement;
     Animator m_Animator;
@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
+        Physics.gravity = new Vector3(0, -1.0F, 0);
         Physics.gravity *= gravityModifier;
         m_AudioSource = GetComponent<AudioSource>();
         keyImage.enabled = false;

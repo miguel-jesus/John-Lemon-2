@@ -8,12 +8,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public GameManager gameManager;
     public float turnSpeed = 20f;
-    //public TextMeshProUGUI totalMonedas;
-    //public int contador = 0;
-    //public bool hasKey = false;
-    //public RawImage keyImage;
-    //public AudioSource coinAudio;
-    //public AudioSource keyAudio;
     private float jumpForce = 5;
     private float gravityModifier = 10;
     private bool isOnGround = true;

@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameManager gameManager;
     public float turnSpeed = 20f;
-    public TextMeshProUGUI totalMonedas;
-    public int contador = 0;
-    public bool hasKey = false;
-    public RawImage keyImage;
-    public AudioSource coinAudio;
-    public AudioSource keyAudio;
+    //public TextMeshProUGUI totalMonedas;
+    //public int contador = 0;
+    //public bool hasKey = false;
+    //public RawImage keyImage;
+    //public AudioSource coinAudio;
+    //public AudioSource keyAudio;
     private float jumpForce = 5;
     private float gravityModifier = 10;
     private bool isOnGround = true;
@@ -25,13 +26,12 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = gameManager.GetComponent<GameManager>();
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody>();
         Physics.gravity = new Vector3(0, -1.0F, 0);
         Physics.gravity *= gravityModifier;
         m_AudioSource = GetComponent<AudioSource>();
-        keyImage.enabled = false;
     }
 
     //usamos el fixedUpdate para que con el bucle de física evitar conflictos entre la física y la animación.
@@ -71,8 +71,6 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = false;
 
         }
-
-
     }
 
     void OnAnimatorMove()
@@ -84,18 +82,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Moneda"))
         {
-            coinAudio.Play();
-            contador++;
-            totalMonedas.text = "Monedas: " + contador + "/5";
-            Debug.Log(contador);
-            Destroy(other.gameObject);
+            gameManager.updateCollectibles(false, other);
         }
         if (other.CompareTag("Key"))
         {
-            keyAudio.Play();
-            hasKey = true;
-            keyImage.enabled = true;
-            Destroy(other.gameObject);
+            gameManager.updateCollectibles(true, other);
         }
     }
     private void OnCollisionEnter(Collision collision)

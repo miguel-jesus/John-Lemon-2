@@ -9,16 +9,15 @@ public class Observer : MonoBehaviour
     // detectar el personaje del jugador
     public Transform player;
     public GameEnding gameEnding;
-    public Slider healthBar;
     private Rigidbody m_Rigidbody;
-    public TextMeshProUGUI lifeText;
+    public GameManager gameManager;
     
     bool m_IsPlayerInRange;
 
     private void Start()
     {
         m_Rigidbody = player.GetComponent<Rigidbody>();
-        
+        gameManager = gameManager.GetComponent<GameManager>();
     }
     void OnTriggerEnter(Collider other)
     {
@@ -51,7 +50,7 @@ public class Observer : MonoBehaviour
             //devovlera un booleano si algo ha chocado con el rayo
             if (Physics.Raycast(ray, out raycastHit))
             {
-                if (raycastHit.collider.transform == player && healthBar.value <= 0)
+                if (raycastHit.collider.transform == player && gameManager.healthBar.value <= 0)
                 {
                  gameEnding.CaughtPlayer();
                 }
@@ -64,19 +63,15 @@ public class Observer : MonoBehaviour
         //del jugador es hacer un knockback
         Vector3 pushDirection = transform.position - player.position;
         pushDirection = -pushDirection.normalized;
+        m_Rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
         if (gameObject.tag == "Gargola")
         {
-            healthBar.value -= 0.25f;
-            lifeText.text = healthBar.value * 100 + "%";
-            m_Rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
+            gameManager.UpdateHealthBar(false);
         }
         else if (gameObject.CompareTag("Fantasma"))
         {
-            healthBar.value -= 0.5f;
-            lifeText.text = healthBar.value * 100 + "%"; ;
-            m_Rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
+            gameManager.UpdateHealthBar(true);
         }
-        
     }    
 }
 

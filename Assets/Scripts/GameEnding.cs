@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameEnding : MonoBehaviour
 {
+    public GameManager gameManager;
     public float fadeDuration = 1f;
     public GameObject player;
     public CanvasGroup exitBackgroundImageCanvasGroup;
@@ -21,12 +22,12 @@ public class GameEnding : MonoBehaviour
 
     private void Start()
     {
-        playerMovement = player.GetComponent<PlayerMovement>();
+        gameManager = gameManager.GetComponent<GameManager>();
     }
     void OnTriggerEnter(Collider other)
     {
         //en cuanto el pj entre al trigger y sea igual al player,nuestro booleano pasara a ser true
-        if (other.gameObject == player && playerMovement.contador == 5)
+        if (other.gameObject == player && gameManager.contador == 5)
         {
             m_IsPlayerAtExit = true;
         }

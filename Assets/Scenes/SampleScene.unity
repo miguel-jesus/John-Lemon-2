@@ -526,6 +526,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 7045076525977519302, guid: 46f7535cc6d8bee4385c0954f36bd78d,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 7457407656956292552, guid: 46f7535cc6d8bee4385c0954f36bd78d,
         type: 3}
       propertyPath: m_TagString
@@ -732,6 +737,11 @@ PrefabInstance:
       propertyPath: keyAudio
       value: 
       objectReference: {fileID: 364354249}
+    - target: {fileID: 5960260352231862961, guid: ff54b63057314694aad0a10d5f668150,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 6164651392066424414, guid: ff54b63057314694aad0a10d5f668150,
         type: 3}
       propertyPath: m_Material
@@ -1486,6 +1496,57 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc5de5e674870ca479a40105f80555ad, type: 3}
+--- !u!1 &677915730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 677915732}
+  - component: {fileID: 677915731}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &677915731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677915730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5433a87eb2d961a4badf3ec869aeb923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1137555881}
+  lifeText: {fileID: 1294015511}
+  totalMonedas: {fileID: 326398979}
+  keyImage: {fileID: 1653822150}
+  coinAudio: {fileID: 1986033832}
+  keyAudio: {fileID: 364354249}
+  hasKey: 0
+  contador: 0
+--- !u!4 &677915732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677915730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 641.2598, y: 488.67023, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &680704471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5245,6 +5306,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 7045076525977519302, guid: 46f7535cc6d8bee4385c0954f36bd78d,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 7457407656956292552, guid: 46f7535cc6d8bee4385c0954f36bd78d,
         type: 3}
       propertyPath: m_TagString
@@ -5507,6 +5573,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 7045076525977519302, guid: 46f7535cc6d8bee4385c0954f36bd78d,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 7457407656956292552, guid: 46f7535cc6d8bee4385c0954f36bd78d,
         type: 3}
       propertyPath: m_TagString
@@ -6238,7 +6309,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2789d5ce62baaba4ab1ee8bb172304a6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c0f716a9e9ac00c438b95158ba195a58, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6537,6 +6608,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 2493893715553992818, guid: a0ece31ba822b6049980a82013019f7f,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 2605116983759464828, guid: a0ece31ba822b6049980a82013019f7f,
         type: 3}
       propertyPath: m_TagString
@@ -6620,7 +6696,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c0f716a9e9ac00c438b95158ba195a58, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2789d5ce62baaba4ab1ee8bb172304a6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6838,7 +6914,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653822148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -7219,7 +7295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3417924107ae34da89a726539307f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 743557694}
+  gameManager: {fileID: 677915731}
   secretDoor: {fileID: 1719940483}
   doorAudio: {fileID: 136778166}
 --- !u!65 &1849627335
@@ -7279,6 +7355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d245612f54cf5264394d92939cc8ec40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 677915731}
   fadeDuration: 1
   player: {fileID: 743557694}
   exitBackgroundImageCanvasGroup: {fileID: 2043992931}
@@ -7568,6 +7645,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 2493893715553992818, guid: a0ece31ba822b6049980a82013019f7f,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 2605116983759464828, guid: a0ece31ba822b6049980a82013019f7f,
         type: 3}
       propertyPath: m_TagString
@@ -7822,6 +7904,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 2493893715553992818, guid: a0ece31ba822b6049980a82013019f7f,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 2605116983759464828, guid: a0ece31ba822b6049980a82013019f7f,
         type: 3}
       propertyPath: m_TagString
@@ -7937,6 +8024,11 @@ PrefabInstance:
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 1294015511}
+    - target: {fileID: 7045076525977519302, guid: 46f7535cc6d8bee4385c0954f36bd78d,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 677915731}
     - target: {fileID: 7457407656956292552, guid: 46f7535cc6d8bee4385c0954f36bd78d,
         type: 3}
       propertyPath: m_TagString

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class DoorOpen : MonoBehaviour
 {
-    public GameObject player;
+    public GameManager gameManager;
     public GameObject secretDoor;
     public AudioSource doorAudio;
 
@@ -18,7 +18,7 @@ public class DoorOpen : MonoBehaviour
     void Start()
     {
         rigidbody = secretDoor.GetComponent<Rigidbody>();
-        playerMovement = player.GetComponent<PlayerMovement>();
+        gameManager = gameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class DoorOpen : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.K) && playerMovement.hasKey)
+        if (Input.GetKeyDown(KeyCode.K) && gameManager.hasKey)
         {
             if(isOpen == false)
             {
@@ -36,7 +36,7 @@ public class DoorOpen : MonoBehaviour
                 isOpen = true;
             }
             rigidbody.mass = 1;
-            playerMovement.keyImage.enabled = false;
+            gameManager.keyImage.enabled = false;
         }
     }
 }

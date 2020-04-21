@@ -8,9 +8,11 @@ public class DoorOpen : MonoBehaviour
 {
     public GameObject player;
     public GameObject secretDoor;
+    public AudioSource openDoor;
 
     Rigidbody rigidbody;
     PlayerMovement playerMovement;
+    bool open = false;
      
 
     // Start is called before the first frame update
@@ -29,6 +31,11 @@ public class DoorOpen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K) && playerMovement.hasKey)
         {
+            if (open==false)
+            {
+                openDoor.Play();
+                open = true;
+            }
             rigidbody.mass = 1;
             playerMovement.keyImage.enabled = false;
         }

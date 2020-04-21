@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Observer : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Observer : MonoBehaviour
     public GameEnding gameEnding;
     public Slider healthBar;
     private Rigidbody m_Rigidbody;
-
+    public TextMeshProUGUI lifeText;
+    
     bool m_IsPlayerInRange;
 
     private void Start()
@@ -65,11 +67,13 @@ public class Observer : MonoBehaviour
         if (gameObject.tag == "Gargola")
         {
             healthBar.value -= 0.25f;
+            lifeText.text = healthBar.value * 100 + "%";
             m_Rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
         }
         else if (gameObject.CompareTag("Fantasma"))
         {
             healthBar.value -= 0.5f;
+            lifeText.text = healthBar.value * 100 + "%"; ;
             m_Rigidbody.AddForce(pushDirection * 12, ForceMode.Impulse);
         }
         

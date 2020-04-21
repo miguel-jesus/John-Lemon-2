@@ -11,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public int contador = 0;
     public bool hasKey = false;
     public RawImage keyImage;
-    public AudioSource coinCaught;
-    public AudioSource keyCaught;
     private float jumpForce = 5;
     private float gravityModifier = 10;
     private bool isOnGround = true;
@@ -84,7 +82,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Moneda"))
         {
-            coinCaught.Play();
             contador++;
             totalMonedas.text = "Monedas: " + contador + "/5";
             Debug.Log(contador);
@@ -92,7 +89,6 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.CompareTag("Key"))
         {
-            keyCaught.Play();
             hasKey = true;
             keyImage.enabled = true;
             Destroy(other.gameObject);
